@@ -1,0 +1,22 @@
+<body style="background: #CCC;">
+<h1>Create An Article!!</h1>
+
+<%= form_for @article do |f| %>
+     <div>
+        <span style="margin-right: 30px;">
+            <%= f.label :title %>:
+        </span>
+        <%= f.text_field :title %>
+     </div>
+     <div style="padding: 5px;">
+        <span style="margin-right: 10px;">
+            <%= f.label :description %>:
+        </span>
+        <%= f.text_area :description %>        
+     </div>
+     <div style="padding: 20px; ">
+         <%= f.submit %>
+     </div>
+<% end %>
+
+</body>
