@@ -1,0 +1,13 @@
+<h1>Showing Selected Article</h1>
+
+<div>
+    Title: <%= @article.title %>
+</div> 
+<div>
+    Description: <%= @article.description %>
+</div>
+
+<div style="margin-top: 20px;">
+    <span style="padding-right: 30px;"><%= link_to "Edit", edit_article_path(@article.id) %></span> 
+    <%= link_to "Go Back to articles list", articles_path %> 
+</div>

@@ -1,0 +1,35 @@
+<h1>Listing All Articles</h1>
+<div>
+    <%= link_to "Create New Article", new_article_path %>
+</div>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+    </tr>
+    <hr>
+    
+    <!--loop thru each article record-->
+    <% @articles.each do |r| %>
+    <tr>
+        <td>
+            <%= r.title %>  
+        </td>
+        <td>
+            <%= r.description %>
+        </td>
+        <td>
+                                        <!--<a href="1">Show</a>-->
+            <%= link_to "Show", article_path(r) %>
+        </td>
+        <td>
+            <%= link_to "Edit", edit_article_path(r) %>
+        </td>
+        <td>
+               <!--the URI pattern and verb to call destroy method in the articles controller-->
+            <%= link_to "Delete", article_path(r), method: :delete, data: {confirm: "Are you sure?"} %>  
+        </td>
+    </tr>
+    <% end %>
+</table>
