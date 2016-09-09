@@ -1,35 +1,27 @@
-<h1>Listing All Articles</h1>
-<div>
-    <%= link_to "Create New Article", new_article_path %>
+<h1 align="center">Listing All Articles</h1>
+    
+        <!--loop thru each article record-->
+<% @articles.each do |r| %>
+
+<div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+        <div class="well well-lg">
+            <div class="article-title">
+                <%= link_to r.title, article_path(r) %> 
+            </div>
+            <div class="article-body">
+                <%= truncate(r.description, length: 100) %>
+            </div>
+            
+            <div class="article-actions">
+                <%= link_to "Edit this article", edit_article_path(r.id), class: "btn btn-xs btn-primary" %> 
+                <%= link_to "Delete this article", article_path(r.id), method: :delete, 
+                            data: { confirm: "Are you sure you want to delete article?"}, 
+                            class: "btn btn-xs btn-danger" %>
+            </div>            
+            
+        </div>
+    </div>
 </div>
 
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Description</th>
-    </tr>
-    <hr>
-    
-    <!--loop thru each article record-->
-    <% @articles.each do |r| %>
-    <tr>
-        <td>
-            <%= r.title %>  
-        </td>
-        <td>
-            <%= r.description %>
-        </td>
-        <td>
-                                        <!--<a href="1">Show</a>-->
-            <%= link_to "Show", article_path(r) %>
-        </td>
-        <td>
-            <%= link_to "Edit", edit_article_path(r) %>
-        </td>
-        <td>
-               <!--the URI pattern and verb to call destroy method in the articles controller-->
-            <%= link_to "Delete", article_path(r), method: :delete, data: {confirm: "Are you sure?"} %>  
-        </td>
-    </tr>
-    <% end %>
-</table>
+<% end %>
