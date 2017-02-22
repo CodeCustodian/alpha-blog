@@ -4,6 +4,11 @@ $navbar-default-bg: #E8C47A;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.article-meta-details {
+    border-top: 1px solid #eaeaea;
+    margin-top: 15px;
+}
+
 .article-actions {
     border-top: 1px solid #eaeaea;
     padding-top: 5px;
