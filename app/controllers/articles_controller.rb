@@ -10,10 +10,12 @@ class ArticlesController < ApplicationController
         @article = Article.new
     end
     
+    
     def edit
         # @article = Article.find(params[:id]) 
         @article = set_article_number()
     end
+    
     
     def update
        @article = Article.find(params[:id]) 
@@ -25,9 +27,11 @@ class ArticlesController < ApplicationController
         end
     end 
     
+    
     def show
     #   @article = Article.find(params[:id]) 
     end    
+    
     
     def destroy
     #   @art = Article.find(params[:id])  
@@ -36,9 +40,11 @@ class ArticlesController < ApplicationController
       redirect_to articles_path
     end
     
+    
     def create
                 #render plain: params[:article].inspect
         @article = Article.new(article_params) 
+        @article.user = User.first
         if @article.save
             flash[:success] = "Article was successfully created"
             redirect_to article_path(@article)
